@@ -100,9 +100,9 @@ class SearchService {
         System.out.println("\nAvailable Rooms:\n");
 
         Room[] rooms = {
-                new SingleRoom(),
-                new DoubleRoom(),
-                new SuiteRoom()
+            new SingleRoom(),
+            new DoubleRoom(),
+            new SuiteRoom()
         };
 
         for (Room room : rooms) {
