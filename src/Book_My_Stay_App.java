@@ -1,44 +1,84 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * UseCase2RoomInitialization
+ * RoomInventory
+ * Centralized inventory manager responsible for storing
+ * and updating room availability using a HashMap.
  *
- * Demonstrates room initialization and static availability
- * for the Book My Stay Hotel Booking System.
- *
- * @author Student
- * @version 2.1
+ * @version 3.0
  */
-public class UseCase2RoomInitialization {
+class RoomInventory {
+
+    private HashMap<String, Integer> inventory;
+
+    // Constructor initializes inventory
+    public RoomInventory() {
+
+        inventory = new HashMap<>();
+
+        // Register room availability
+        inventory.put("Single Room", 10);
+        inventory.put("Double Room", 5);
+        inventory.put("Suite Room", 2);
+    }
+
+    // Retrieve availability
+    public int getAvailability(String roomType) {
+        return inventory.getOrDefault(roomType, 0);
+    }
+
+    // Update availability
+    public void updateAvailability(String roomType, int newCount) {
+        inventory.put(roomType, newCount);
+    }
+
+    // Display full inventory
+    public void displayInventory() {
+
+        System.out.println("\nCurrent Room Inventory:");
+
+        for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
+            System.out.println(entry.getKey() + " -> Available Rooms: " + entry.getValue());
+        }
+    }
+}
+
+
+/**
+ * UseCase3InventorySetup
+ *
+ * Demonstrates centralized room inventory management
+ * using a HashMap in the Book My Stay system.
+ *
+ * @version 3.1
+ */
+public class UseCase3InventorySetup {
 
     public static void main(String[] args) {
 
         System.out.println("=================================");
-        System.out.println("     Book My Stay Application    ");
-        System.out.println("        Version 2.1              ");
-        System.out.println("=================================\n");
+        System.out.println("      Book My Stay App");
+        System.out.println("        Version 3.1");
+        System.out.println("=================================");
 
-        // Creating room objects
-        Room singleRoom = new SingleRoom();
-        Room doubleRoom = new DoubleRoom();
-        Room suiteRoom = new SuiteRoom();
+        // Initialize inventory
+        RoomInventory inventory = new RoomInventory();
 
-        // Static availability variables
-        int singleRoomAvailable = 10;
-        int doubleRoomAvailable = 5;
-        int suiteRoomAvailable = 2;
+        // Display initial inventory
+        inventory.displayInventory();
 
-        // Display room details
-        System.out.println("Single Room Details:");
-        singleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + singleRoomAvailable);
+        // Retrieve availability
+        System.out.println("\nChecking availability for Double Room:");
+        System.out.println("Available: " + inventory.getAvailability("Double Room"));
 
-        System.out.println("\nDouble Room Details:");
-        doubleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + doubleRoomAvailable);
+        // Update availability
+        System.out.println("\nUpdating availability for Double Room...");
+        inventory.updateAvailability("Double Room", 4);
 
-        System.out.println("\nSuite Room Details:");
-        suiteRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + suiteRoomAvailable);
+        // Display updated inventory
+        inventory.displayInventory();
 
-        System.out.println("\nThank you for using Book My Stay!");
+        System.out.println("\nInventory management completed.");
     }
 }
