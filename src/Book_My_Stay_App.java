@@ -1,28 +1,44 @@
 /**
- * Abstract Room class representing common properties of all rooms
- * in the Book My Stay application.
+ * UseCase2RoomInitialization
+ *
+ * Demonstrates room initialization and static availability
+ * for the Book My Stay Hotel Booking System.
  *
  * @author Student
- * @version 2.0
+ * @version 2.1
  */
-abstract class Room {
+public class UseCase2RoomInitialization {
 
-    protected String roomType;
-    protected int beds;
-    protected int size;
-    protected double price;
+    public static void main(String[] args) {
 
-    public Room(String roomType, int beds, int size, double price) {
-        this.roomType = roomType;
-        this.beds = beds;
-        this.size = size;
-        this.price = price;
-    }
+        System.out.println("=================================");
+        System.out.println("     Book My Stay Application    ");
+        System.out.println("        Version 2.1              ");
+        System.out.println("=================================\n");
 
-    public void displayRoomDetails() {
-        System.out.println("Room Type : " + roomType);
-        System.out.println("Beds      : " + beds);
-        System.out.println("Size      : " + size + " sq.ft");
-        System.out.println("Price     : ₹" + price + " per night");
+        // Creating room objects
+        Room singleRoom = new SingleRoom();
+        Room doubleRoom = new DoubleRoom();
+        Room suiteRoom = new SuiteRoom();
+
+        // Static availability variables
+        int singleRoomAvailable = 10;
+        int doubleRoomAvailable = 5;
+        int suiteRoomAvailable = 2;
+
+        // Display room details
+        System.out.println("Single Room Details:");
+        singleRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + singleRoomAvailable);
+
+        System.out.println("\nDouble Room Details:");
+        doubleRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + doubleRoomAvailable);
+
+        System.out.println("\nSuite Room Details:");
+        suiteRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + suiteRoomAvailable);
+
+        System.out.println("\nThank you for using Book My Stay!");
     }
 }
