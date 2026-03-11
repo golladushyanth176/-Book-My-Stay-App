@@ -1,37 +1,28 @@
 /**
- * UseCase1HotelBookingApp
- *
- * This class represents the entry point of the Book My Stay
- * Hotel Booking Management System. It demonstrates how a Java
- * application starts execution and displays a welcome message
- * to the user through console output.
- *
- * The program prints the application name and version to confirm
- * successful startup of the system.
+ * Abstract Room class representing common properties of all rooms
+ * in the Book My Stay application.
  *
  * @author Student
- * @version 1.0
+ * @version 2.0
  */
-public class UseCase1HotelBookingApp {
+abstract class Room {
 
-    /**
-     * Main method – entry point of the Java application.
-     * The JVM starts execution from this method.
-     *
-     * @param args Command line arguments
-     */
-    public static void main(String[] args) {
+    protected String roomType;
+    protected int beds;
+    protected int size;
+    protected double price;
 
-        // Display welcome message
-        System.out.println("====================================");
-        System.out.println("     Welcome to Book My Stay App    ");
-        System.out.println("   Hotel Booking Management System  ");
-        System.out.println("             Version 1.0            ");
-        System.out.println("====================================");
+    public Room(String roomType, int beds, int size, double price) {
+        this.roomType = roomType;
+        this.beds = beds;
+        this.size = size;
+        this.price = price;
+    }
 
-        // Inform user that application started successfully
-        System.out.println("Application started successfully.");
-        System.out.println("Thank you for using Book My Stay!");
-
+    public void displayRoomDetails() {
+        System.out.println("Room Type : " + roomType);
+        System.out.println("Beds      : " + beds);
+        System.out.println("Size      : " + size + " sq.ft");
+        System.out.println("Price     : ₹" + price + " per night");
     }
 }
