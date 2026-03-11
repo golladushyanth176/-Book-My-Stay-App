@@ -1,37 +1,44 @@
 /**
- * UseCase1HotelBookingApp
+ * UseCase2RoomInitialization
  *
- * This class represents the entry point of the Book My Stay
- * Hotel Booking Management System. It demonstrates how a Java
- * application starts execution and displays a welcome message
- * to the user through console output.
- *
- * The program prints the application name and version to confirm
- * successful startup of the system.
+ * Demonstrates room initialization and static availability
+ * for the Book My Stay Hotel Booking System.
  *
  * @author Student
- * @version 1.0
+ * @version 2.1
  */
-public class UseCase1HotelBookingApp {
+public class UseCase2RoomInitialization {
 
-    /**
-     * Main method – entry point of the Java application.
-     * The JVM starts execution from this method.
-     *
-     * @param args Command line arguments
-     */
     public static void main(String[] args) {
 
-        // Display welcome message
-        System.out.println("====================================");
-        System.out.println("     Welcome to Book My Stay App    ");
-        System.out.println("   Hotel Booking Management System  ");
-        System.out.println("             Version 1.0            ");
-        System.out.println("====================================");
+        System.out.println("=================================");
+        System.out.println("     Book My Stay Application    ");
+        System.out.println("        Version 2.1              ");
+        System.out.println("=================================\n");
 
-        // Inform user that application started successfully
-        System.out.println("Application started successfully.");
-        System.out.println("Thank you for using Book My Stay!");
+        // Creating room objects
+        Room singleRoom = new SingleRoom();
+        Room doubleRoom = new DoubleRoom();
+        Room suiteRoom = new SuiteRoom();
 
+        // Static availability variables
+        int singleRoomAvailable = 10;
+        int doubleRoomAvailable = 5;
+        int suiteRoomAvailable = 2;
+
+        // Display room details
+        System.out.println("Single Room Details:");
+        singleRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + singleRoomAvailable);
+
+        System.out.println("\nDouble Room Details:");
+        doubleRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + doubleRoomAvailable);
+
+        System.out.println("\nSuite Room Details:");
+        suiteRoom.displayRoomDetails();
+        System.out.println("Available Rooms: " + suiteRoomAvailable);
+
+        System.out.println("\nThank you for using Book My Stay!");
     }
 }
