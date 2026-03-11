@@ -25,5 +25,4 @@ abstract class Room {
         System.out.println("Size      : " + size + " sq.ft");
         System.out.println("Price     : ₹" + price + " per night");
     }
-
 }
